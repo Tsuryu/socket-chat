@@ -22,6 +22,10 @@ class Usuarios {
         return this.personas.filter(p => p.sala === sala);
     }
 
+    getPersonasPorFilterString(filterString) {
+        return this.personas.filter(p => p.nombre.match(filterString, 'gi'));
+    }
+
     borrarPersona(id) {
         let personaBorrada = this.getPersona(id);
         this.personas = this.personas.filter(p => p.id != id);
